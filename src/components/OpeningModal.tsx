@@ -13,7 +13,8 @@ const OpeningModal = (props: any) => {
   return (
     <Dialog open={props.showIntroModal} onOpenChange={props.setShowIntroModal}>
       <DialogContent className="max-w-full md:max-w-[1000px] rounded-lg p-0">
-        <div className="px-6 md:px-16 py-6 md:py-16 flex flex-col gap-6">
+        {/* Enable vertical scroll if content is larger than screen */}
+        <div className="px-6 md:px-16 py-6 md:py-16 flex flex-col gap-6 max-h-[90vh] overflow-y-auto">
           {/* Header with Icon */}
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-4 md:mb-6">
             {/* Puzzle Icon */}

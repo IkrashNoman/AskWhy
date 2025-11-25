@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { X } from "lucide-react";
 
-const TooltipCarousel = ({ slides, onClose,header }) => {
+const TooltipCarousel = ({ slides, onClose, header }: any) => {
   const [index, setIndex] = useState(0);
   const current = slides[index];
 
   return (
     <div
-      className="w-[240px] bg-[#5F237B] text-white shadow-lg 
-                 rounded-t-3xl justify-between  rounded-bl-3xl
-                 flex flex-col pb-2"
+      className="w-[240px] sm:w-[280px] bg-[#5F237B] text-white shadow-lg 
+                 rounded-t-3xl rounded-bl-3xl flex flex-col pb-2"
       style={{
         height: "17.5vh", // fixed height for all slides
+        minHeight: "100px",
+        maxHeight: "140px",
       }}
     >
       {/* Content: flex-1 to push dots to bottom */}
@@ -19,17 +19,17 @@ const TooltipCarousel = ({ slides, onClose,header }) => {
         <div className="flex items-start justify-between">
           {/* Icon */}
           <div className="w-6 h-6 flex-shrink-0 rounded-full bg-[#FF9348] flex items-center justify-center">
-            <img src="/tooltip.svg" className="w-6 h-6" />
+            <img src="/tooltip.svg" className="w-4 sm:w-6 h-4 sm:h-6" />
           </div>
 
           {/* Text */}
           <div className="flex flex-col gap-1 pl-2">
-            {current.heading && header   && (
-              <h2 className="text-[12px] font-semibold leading-none">
+            {current.heading && header && (
+              <h2 className="text-[10px] sm:text-[12px] font-semibold leading-none">
                 {current.heading}
               </h2>
             )}
-            <p className="text-[12px] leading-snug text-white/90">
+            <p className="text-[10px] sm:text-[12px] leading-snug text-white/90">
               {current.description}
             </p>
           </div>
