@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { decreaseScore } from "@/store/topicsSlice";
 import TooltipCarousel from "@/components/TooltipCarousel";
 import CelebrationScreen from "./Closing";
+import OpeningModal from "@/components/OpeningModal";
 
 type Screen = "intro" | "roleSelection" | "question" | "scenario" | "closing";
 type Role = { title: string; subtitle: string };
@@ -146,8 +147,8 @@ const handleAnswerSelect = (selectedLabel: string, color: string) => {
   // --- Screens ---
   if (currentScreen === "roleSelection") {
     return (
-      <div className="p-4">
-        <main className=" bg-[#F8F1E7]">
+      <div className="min-h-screen p-4 bg-fixed">
+        <main className=" min-h-screen bg-[#F8F1E7] ">
           <OpeningModal showIntroModal={showIntroModal} moduleId={"M7"} setShowIntroModal={setShowIntroModal} src={"/opening17.png"} />
           <div className="max-w-7xl mx-auto">
             <ModuleHeader
@@ -363,34 +364,3 @@ function RoleCard({ role, disabled, roleImageMap, short }: any) {
   );
 }
 
-
-// OpeningModal.tsx
-const OpeningModal = (props: any) => {
-  return (
-    <Dialog open={props.showIntroModal} onOpenChange={props.setShowIntroModal}>
-      <DialogContent className="max-w-[1000px] aspect-[1253/703] rounded-[12px] p-0 gap-0 bg-white">
-        <div className="px-4 sm:px-32 py-8 sm:py-16">
-          <div className="flex items-start gap-4 mb-6">
-            <div className="w-16 h-16 rounded-lg flex items-center justify-center relative flex-shrink-0">
-              <img src={props.src} alt="Module" className="w-16 h-16 object-contain" />
-            </div>
-            <div>
-              <div className="text-[#FF9348] text-[18px] sm:text-[24px] font-semibold">Phase III</div>
-              <h2 className="text-[18px] sm:text-[24px] font-bold text-black">
-                {props.heading || "Module Intro"}
-              </h2>
-            </div>
-          </div>
-          <p className="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-            {props.description || "Welcome to this module. Read the instructions carefully before starting."}
-          </p>
-          <div className="flex justify-end mt-8">
-            <Button onClick={() => props.setShowIntroModal(false)} className="bg-[#FF9348] text-white px-6 py-2 rounded-lg hover:opacity-90 transition">
-              Start
-            </Button>
-          </div>
-        </div>
-      </DialogContent>
-    </Dialog>
-  );
-};

@@ -60,19 +60,15 @@ const ModuleHeader = ({
 
           {/* Module Info */}
           <div className="flex-1">
-            <h1 className="font-medium text-2xl md:text-4xl leading-tight md:leading-[100%] text-[#130719] mb-1 md:mb-2">
+            <h1 className="font-bold text-2xl md:text-4xl leading-tight md:leading-[100%] text-[#D0193E] mb-1 md:mb-2">
               {heading}
             </h1>
 
-            <p className="font-normal text-sm md:text-xl leading-snug md:leading-[100%] text-[#130719] mb-2">
+            <p className="font-normal text-sm md:text-xl leading-snug md:leading-[100%] text-[#150800] mb-2">
               {description}
             </p>
 
-            <div className="flex items-center gap-3 md:gap-6 text-[#201E1C] text-sm md:text-lg">
-              <img src={"/clocl.svg"} alt="Clock" className="w-4 md:w-6 h-4 md:h-6" />
-              <span className="font-normal">{formatTime(timeLeft)}</span>
             </div>
-          </div>
         </div>
 
         {/* Right side: Polarization bar + counts */}
@@ -105,7 +101,14 @@ const ModuleHeader = ({
                 <span>{savesCount}/{MAX_SAVES} Saves</span>
               </>
             ) : (
+              <>
+              <div className="flex items-center md:gap-6 text-[#201E1C] text-sm md:text-lg">
+              <img src={"/clocl.svg"} alt="Clock" className="w-4 md:w-6 h-4 md:h-6" />
+              <span className="font-normal">{formatTime(timeLeft)} </span>
+            </div>
+              <span className='font-bold text-xl'>|</span>
               <div className="font-normal text-base md:text-[32px]">{left} Left</div>
+              </>
             )}
           </div>
         </div>

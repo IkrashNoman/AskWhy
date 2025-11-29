@@ -93,7 +93,7 @@ console.log(data)
               src={"/opening16.png"}
               heading={"Debate Switch"}
               description={"One debate, two sides, endless perspectives"}
-              time={600}
+              time={120}
               left={1 - currentIndex}
               polarizationScore={score}
             />
