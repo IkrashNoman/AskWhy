@@ -83,7 +83,7 @@ const Interest = () => {
 
   return (
     <div className="p-4 sm:p-6 md:p-8 flex justify-center w-full">
-      <div className="w-full max-w-7xl h-[90vh] overflow-auto py-4 sm:py-6 md:py-8 rounded-3xl bg-[#F8F1E7]">
+      <div className="w-full max-w-10xl h-[90vh] overflow-auto py-4 sm:py-6 md:py-8 rounded-3xl bg-[#F8F1E7]">
         <OpeningModal
           phase="I"
           module="Module 1: Find your vibe"
@@ -115,46 +115,53 @@ const Interest = () => {
             </h1>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-            {topics.map((topic) => (
-              <Card
-                key={topic.id}
-                className="flex flex-col items-center justify-between p-4 sm:p-5 md:p-6 bg-white border border-gray-200 hover:shadow-lg transition-shadow duration-300 text-center min-h-[180px]"
-              >
-                <div className="mb-2">
-                  <span
-                    className="inline-block px-3 py-1 text-xs sm:text-sm font-normal rounded-full uppercase tracking-wider"
-                    style={{ backgroundColor: "#DFD3E5", color: "#32302E" }}
-                  >
-                    {topic.category}
-                  </span>
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-9">
+  {topics.map((topic) => (
+    <Card
+      key={topic.id}
+      className="flex flex-col items-center justify-between px-18 py-4 sm:p-5 md:p-6 bg-white border border-gray-200 hover:shadow-lg transition-shadow duration-300 text-center"
+    >
+      <div className="mb-2">
+        <span
+          className="inline-block px-3 py-1 text-xs sm:text-sm font-normal rounded-full uppercase tracking-wider"
+          style={{ backgroundColor: "#DFD3E5", color: "#32302E" }}
+        >
+          {topic.category}
+        </span>
+      </div>
 
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl leading-snug text-center my-3 flex-grow flex items-center justify-center">
-                  {topic.title}
-                </h3>
+      <h3 className="font-semibold text-base sm:text-lg md:text-xl leading-snug text-center my-3 flex-grow flex items-center justify-center whitespace-nowrap overflow-hidden text-ellipsis">
+        {topic.title}
+      </h3>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mt-3">
-                  <Button
-                    size="sm"
-                    onClick={() => handleVote(topic.id, "interested", topic.title)}
-                    className={`font-medium text-xs sm:text-sm md:text-base px-4 py-2 w-full max-w-[150px] transition-colors duration-300 ${
-                      topic.voted === "interested"
-                        ? "bg-[#D0193E] text-white"
-                        : "bg-[#F1F5F9] text-[#4C1C62]"
-                    }`}
-                  >
-                    {topic.voted !== "interested" ? (
-                      <img src="/love.svg" className="w-4 h-4 mr-1.5" alt="Love Icon" />
-                    ) : (
-                      <img src="/whitelove.svg" className="w-4 h-4 mr-1.5" alt="White Love Icon" />
-                    )}
-                    Interested
-                  </Button>
-                </div>
-              </Card>
-            ))}
-          </div>
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mt-3">
+       <Button
+  size="sm"
+  onClick={() => handleVote(topic.id, "interested", topic.title)}
+  className={`
+    font-medium text-xs sm:text-sm md:text-base 
+    px-4 py-2 transition-all duration-300 
+    flex items-center justify-center gap-2
+    ${
+      topic.voted === "interested"
+        ? "bg-[#D0193E] text-white w-[350px]"   
+        : "bg-[#F1F5F9] text-[#4C1C62] w-[120px]"
+    }
+  `}
+>
+  {topic.voted !== "interested" ? (
+    <img src="/love.svg" className="w-4 h-4" alt="Love Icon" />
+  ) : (
+    <img src="/whitelove.svg" className="w-4 h-4" alt="White Love Icon" />
+  )}
+  Interested
+</Button>
+
+      </div>
+    </Card>
+  ))}
+</div>
+
         </div>
       </div>
     </div>

@@ -24,15 +24,15 @@ const BiasQuiz = ({ imageUrl, headline, questionNumber, onComplete,question,curr
   const biasedPhrases: any = {};
 
   if (question.Keyword1) {
-    biasedPhrases[question.Keyword1] = { difficulty: "easy", color: "#E9D5FF", };
+    biasedPhrases[question.Keyword1] = { difficulty: "easy", color: "#FFA96D", };
   }
 
   if (question.Keyword2) {
-    biasedPhrases[question.Keyword2] = { difficulty: "medium", color: "#E9D5FF" };
+    biasedPhrases[question.Keyword2] = { difficulty: "medium", color: "#FFA96D" };
   }
 
   if (question.Keyword3!="") {
-    biasedPhrases[question.Keyword3] = { difficulty: "hard", color: "#E9D5FF" };
+    biasedPhrases[question.Keyword3] = { difficulty: "hard", color: "#FFA96D" };
   }
 
   useEffect(() => {
@@ -312,7 +312,7 @@ const BiasQuiz = ({ imageUrl, headline, questionNumber, onComplete,question,curr
         {/* Headline text box - Exact match to image */}
         <div className="rounded-tl-[50px] rounded-tr-[50px] rounded-bl-[50px] relative p-4 sm:p-6 w-full sm:w-4/5 mx-auto bg-[#EDE1D0] flex flex-col items-center">
           
-          <div className="absolute z-50" style={{ top: '8vh', left: '-3vh' }}>
+          <div className="absolute z-50" style={{ top: '-15vh', left: '-30vh' }}>
             {selections.length >= Object.keys(biasedPhrases).length && <TooltipCarousel
               slides={[
                 { heading: question?.Bias_Type, description: question?.Tooltip1 },

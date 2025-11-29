@@ -80,10 +80,9 @@ const Workshop = () => {
             <StatBox number="1 hr" label="Total Duration" unitFont="Gabarito" />
             
             <button onClick={()=>navigate("/interest")} className="col-span-2 sm:col-span-1 lg:col-span-1 flex justify-center items-center gap-2 md:gap-4 bg-[#FF9348] hover:bg-[#ff7e1a] text-white px-4 py-3 rounded-xl font-semibold shadow-md transition">
-              <div className="leading-tight">
+             <div className="leading-none font-gabarito">
                 <div className="text-left font-normal text-sm">Click here to</div>
-                <div className="text-left font-semibold text-xl md:text-base lg:text-xl">
-                  {" "}
+                <div className="text-left font-bold text-[24px]">
                   Start
                 </div>
               </div>

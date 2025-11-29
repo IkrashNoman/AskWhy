@@ -3,17 +3,15 @@ import { Button } from "./ui/button";
 import { ChevronRight } from "lucide-react";
 
 const OpeningModal = (props: any) => {
-  const phase1 =
+  const phaseColor =
     props.phase === "I"
       ? "#5F237B"
       : props.phase === "II"
       ? "#D0193E"
       : "#FF9348";
 
-  // Extract module number (e.g., "M3" → 3)
   const moduleNumber = parseInt(props.moduleId.replace(/\D/g, ""));
 
-  // The 5 dialer values
   const numbers = [
     moduleNumber - 2,
     moduleNumber - 1,
@@ -22,11 +20,10 @@ const OpeningModal = (props: any) => {
     moduleNumber + 2,
   ];
 
-  // SVG text positions
   const textPositions = [
     { x: 60, y: 50, size: 32 },
     { x: 110, y: 150, size: 32 },
-    { x: 155, y: 250, size: 64 }, // center & highlighted
+    { x: 155, y: 250, size: 64 }, // center
     { x: 100, y: 380, size: 32 },
     { x: 60, y: 480, size: 32 },
   ];
@@ -35,8 +32,7 @@ const OpeningModal = (props: any) => {
     <Dialog open={props.showIntroModal} onOpenChange={props.setShowIntroModal}>
       <DialogContent className="max-w-full md:max-w-[1000px] rounded-lg p-0">
         <div className="flex">
-
-          {/* LEFT SIDE SVG (NOW DYNAMIC) */}
+          {/* LEFT SIDE SVG DIALER */}
           <div className="hidden md:flex w-48 items-center justify-center">
             <svg
               className="w-48 h-[600px]"
@@ -50,8 +46,6 @@ const OpeningModal = (props: any) => {
                 strokeWidth="2"
                 fill="none"
               />
-
-              {/* Dynamic dialer numbers */}
               {numbers.map((num, i) => (
                 <text
                   key={i}
@@ -69,7 +63,6 @@ const OpeningModal = (props: any) => {
 
           {/* RIGHT SIDE CONTENT */}
           <div className="px-6 md:px-16 py-6 md:py-16 flex flex-col gap-6 max-h-[90vh] overflow-y-auto w-full">
-
             {/* Header */}
             <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-4 md:mb-6">
               <div className="w-16 h-16 md:w-24 md:h-24 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -79,11 +72,10 @@ const OpeningModal = (props: any) => {
                   className="w-12 md:w-16 h-auto object-contain"
                 />
               </div>
-
               <div>
                 <div
                   className="font-semibold mb-1"
-                  style={{ color: phase1, fontSize: "1.25rem" }}
+                  style={{ color: phaseColor, fontSize: "1.25rem" }}
                 >
                   Phase {props.phase}
                 </div>
@@ -122,7 +114,7 @@ const OpeningModal = (props: any) => {
 
               <div className="flex items-center gap-2 text-[#130719] font-normal text-sm md:text-lg">
                 <img src={"/star.svg"} className="w-5 h-5 md:w-6 md:h-6" alt="Score" />
-                Score is {props.calculated} calculated in this module
+                Score is {props.calculated || "not"} calculated in this module
               </div>
             </div>
 
@@ -135,7 +127,6 @@ const OpeningModal = (props: any) => {
                 Let's begin <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
               </Button>
             </div>
-
           </div>
         </div>
       </DialogContent>

@@ -136,7 +136,7 @@ const ConnectDotsQuiz = ({ rounds }: any) => {
             return (
               <div
                 key={answer.id}
-                className={`rounded-2xl p-3 cursor-pointer transition-all bg-[#EDE1D0] flex flex-col justify-between h-[20vh] sm:h-[22vh] md:h-[24vh]`}
+                className={`rounded-2xl p-3 cursor-pointer transition-all bg-[#EFE8DD] flex flex-col justify-between h-[20vh] sm:h-[22vh] md:h-[24vh]`}
                 onClick={() => handleSelect(answer.Word, isCorrect)}
               >
                 {!isSelected && (

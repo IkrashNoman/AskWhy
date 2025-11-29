@@ -161,7 +161,9 @@ const FakeFact = () => {
   }
 
   return (
-    <div className="px-4 sm:px-6 md:px-12 lg:px-24 py-4 sm:py-6 md:py-8 bg-[#F8F1E7] min-h-screen flex flex-col">
+    <div className="min-h-screen bg-white flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12">
+  <div className="w-full max-w-[1440px] bg-[#F8F1E7] rounded-xl shadow-lg p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col">
+    
       <OpeningModal
         showIntroModal={showIntroModal}
         moduleId={"M3"}
@@ -214,13 +216,14 @@ const FakeFact = () => {
 
         {/* Example: question0 rendering */}
         {currentQuestionIndex === 0 && allQuestions.question0 && (
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-12 w-full">
-            <img src={allQuestions.question0[0].src} alt="Left Post" className="w-full sm:w-5/12 h-auto object-contain rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg" onClick={() => handlePostClick(`question0-post1`, allQuestions.question0[0].correct, allQuestions.question0[0].tooltip, allQuestions.question0[0].src)} />
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-12 w-full mt-3">
+            <img src={allQuestions.question0[0].src} alt="Left Post" className="w-auto sm:w-5/12 h-[700px] object-contain rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg" onClick={() => handlePostClick(`question0-post1`, allQuestions.question0[0].correct, allQuestions.question0[0].tooltip, allQuestions.question0[0].src)} />
             <span className="font-semibold text-lg sm:text-2xl text-center">VS</span>
-            <img src={allQuestions.question0[1].src} alt="Right Post" className="w-full sm:w-5/12 h-auto object-contain rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg" onClick={() => handlePostClick(`question0-post2`, allQuestions.question0[1].correct, allQuestions.question0[1].tooltip, allQuestions.question0[1].src)} />
+            <img src={allQuestions.question0[1].src} alt="Right Post" className="w-auto sm:w-5/12 h-[700px] object-contain rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg" onClick={() => handlePostClick(`question0-post2`, allQuestions.question0[1].correct, allQuestions.question0[1].tooltip, allQuestions.question0[1].src)} />
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 };
